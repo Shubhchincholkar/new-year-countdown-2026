@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+body {
+  min-height: 75vh;
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}
+
+#clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin-top: 5rem;
+}
+#secDots,
+#minDots,
+#hrDots {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  rotate: 90deg;
+}
+
+#secDots::before,
+#minDots::before,
+#hrDots::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  box-shadow: 25px 25px 25px 25px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0, 0, 0, 0.25), inset 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 20px rgba(255, 255, 255, 0.2),
+    inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+#secDots h2,
+#minDots h2,
+#hrDots h2 {
+  position: absolute;
+  text-align: center;
+  inset: 0;
+  transform: rotate(-90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 3.9em;
+  font-weight: 500;
+  color: var(--clr);
+}
+
+#secDots h2 span,
+#minDots h2 span,
+#hrDots h2 span {
+  position: absolute;
+  font-size: 0.25em;
+  font-weight: 500;
+  bottom: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#secDots b {
+  position: absolute;
+  color: #fff;
+  display: inline-flex;
+  transform: rotate(-90deg) translate(-20px, 90px);
+}
+
+#secDots .dot,
+#minDots .dot,
+#hrDots .dot {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 3px;
+  background: var(--clr);
+  transform-origin: 100px;
+}
+
+#secDots .active.dot,
+#minDots .active.dot,
+#hrDots .active.dot {
+  background: var(--clr);
+  box-shadow: 0 0 10px var(--clr), 0 0 20px var(--clr), 0 0 30px var(--clr);
+}
+
+#secDots .active.dot ~ .dot,
+#minDots .active.dot ~ .dot,
+#hrDots .active.dot ~ .dot {
+  background: #555;
+}
+
+#secDots .dot:nth-child(5n + 5),
+#minDots .dot:nth-child(5n + 5) {
+  width: 20px;
+}
+
+#hrDots .dot {
+  width: 20px;
+}
+
+/* text for new year */
+
+.ny-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  margin-top: 13rem;
+
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 25px;
+  color: #22c55e; /* electric blue */
+  text-shadow:
+    0 0 8px rgba(59,130,246,0.8),
+    0 0 16px rgba(59,130,246,0.6);
+  animation: softPulse 2.5s ease-in-out infinite;
+}
+
+/* Soft glow animation */
+@keyframes softPulse {
+  0% {
+    opacity: 0.85;
+    text-shadow:
+      0 0 6px rgba(59,130,246,0.8),
+      0 0 12px rgba(59,130,246,0.4);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 12px rgba(59,130,246,0.8),
+      0 0 24px rgba(59,130,246,0.8);
+  }
+  100% {
+    opacity: 0.85;
+  }
+}
